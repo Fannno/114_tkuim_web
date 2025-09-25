@@ -6,3 +6,12 @@
 - 嘗試 git clone 專案
 - 嘗試推送檔案
 - 加入test.html
+
+## 0922
+- 加入myfirsthtml.html
+- 加入example.html
+- 加入about.html
+- 學習運用<title>：分頁標題
+- <img>：加入照片,需設定 src 路徑
+- <br>：換行,只需要一個,不用包住
+- <a>：建立超連結
