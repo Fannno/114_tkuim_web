@@ -19,4 +19,6 @@
 - vscode指令練習
   
 ## 1007
--  
+- 練習console指令
+- 練習javascript指令
+- 完整test_js檔案
