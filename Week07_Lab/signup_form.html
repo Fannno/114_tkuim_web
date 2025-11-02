@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>會員註冊表單</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="p-4">
+  <div class="container">
+    <h2>會員註冊</h2>
+    <form id="signupForm">
+        <!-- 姓名 -->
+      <div class="mb-3">
+        <label class="form-label" for="name">姓名</label>
+        <input id="name" name="name" class="form-control" type="text" required aria-describedby="name-error">
+        <p id="name-error" class="text-danger small mb-0" aria-live="polite"></p>
+      </div>
+
+        <!-- 電子郵件 -->
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input id="email" name="email" class="form-control" type="email" required aria-describedby="email-error">
+        <p id="email-error" class="text-danger small mb-0" aria-live="polite"></p>
+      </div>
+
+        <!-- 手機 -->
+      <div class="mb-3">
+        <label class="form-label" for="phone">手機</label>
+        <input id="phone" name="phone" class="form-control" type="tel" pattern="^09\d{8}$" title="請輸入 09 開頭的 10 碼手機" required aria-describedby="phone-error">
+        <p id="phone-error" class="text-danger small mb-0" aria-live="polite"></p>
+      </div>
+
+        <!-- 密碼 -->
+      <div class="mb-3">
+        <label class="form-label" for="password">密碼</label>
+        <div class="password-wrapper">
+        <input id="password" name="password" class="form-control" type="password" minlength="8" required>
+        </div>
+        <div class="form-text">需至少 8 碼，包含英文字母與數字。</div>
+        <p id="password-error" class="text-danger small mb-0"></p>
+      </div>
+
+
+        <!-- 確認密碼 -->
+      <div class="mb-3">
+        <label class="form-label" for="confirm">確認密碼</label>
+        <input id="confirm" name="confirm" class="form-control" type="password" required aria-describedby="confirm-error">
+        <p id="confirm-error" class="text-danger small mb-0"></p>
+      </div>
+
+        <!-- 興趣標籤 -->
+      <div class="form-group">
+        <label id="interests-title">興趣標籤（至少選一個）</label>
+        <div id="interests">
+          <label><input type="checkbox" value="運動"> 運動</label>
+          <label><input type="checkbox" value="音樂"> 音樂</label>
+          <label><input type="checkbox" value="旅遊"> 旅遊</label>
+          <label><input type="checkbox" value="閱讀"> 閱讀</label>
+        </div>
+        <p id="interestError" class="text-danger small mb-0" aria-live="polite"></p>
+      </div>
+
+        <!-- 同意隱私權條款 -->
+      <div class="form-check mt-3">
+        <input id="agree" class="form-check-input" type="checkbox" required aria-describedby="agree-error">
+        <label class="form-check-label" for="agree">我已閱讀並同意隱私權條款</label>
+        <p id="agree-error" class="text-danger small mb-0" aria-live="polite"></p>
+      </div>
+
+        <!-- 按鈕 -->
+      <div class="mt-4">
+        <button id="submitBtn" class="btn btn-primary" type="submit">註冊</button>
+        <button id="resetBtn" class="btn btn-outline-secondary ms-2" type="button">重設</button>
+      </div>     
+    </form>
+
+    <div id="successMsg" class="success hidden"> 註冊成功！</div>
+  </div>
+
+  <script src="signup_form.js"></script>
+</body>
+</html>

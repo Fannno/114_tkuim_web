@@ -1,0 +1,114 @@
+/* 基本版面 */
+body {
+  font-family: "Microsoft JhengHei", sans-serif;/* 設定字型 */
+  display: flex; /*設為彈性容器（Flexbox)*/
+  justify-content: center; /*水平置中*/    
+  align-items: center; /*垂直置中*/
+}
+
+.container {
+  background-color: #fff;
+  padding: 80px;/* 增加內距 */
+  width: 100;/* 自動調整寬度 */
+}
+
+/* 標籤與輸入框 */
+.form-label {
+  font-weight: 600;/* 粗體 */
+  display: block;/* 占滿一行 */
+  margin-bottom: 5px;/* 與輸入框底部間距 */
+}
+
+/* 統一輸入框樣式 */
+input.form-control {
+  width: 500px;   /* 統一輸入框寬度 */
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;/* 邊框顏色 */
+  font-size: 14px;
+  margin-bottom: 5px;/* 與錯誤訊息間距 */
+}
+
+/* 輸入框聚焦樣式 */
+input.form-control:focus {
+  outline: none;/* 移除預設藍色外框 */
+  border-color: #007bff;/* 聚焦時邊框顏色 */
+}
+
+/* 密碼欄位：強度顯示同一行 */
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;/* 密碼輸入框與強度文字間距 */
+}
+
+#strengthText {
+  font-weight: bold; 
+  font-size: 12px;/* 調整字體大小 */
+}
+
+/* 錯誤訊息 */
+.text-danger,
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;/* 與輸入框頂部間距 */
+}
+
+/* 成功訊息 */
+.success {
+  margin-top: 20px;/* 與表單間距 */
+  padding: 15px;
+  border: 1px solid green;
+  background-color: #d4edda;/* 淡綠色背景 */
+  color: #155724;
+  border-radius: 5px;
+  text-align: center;/* 文字置中 */
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;/* 隱藏元素 */
+}
+
+/* Loading 按鈕 */
+.btn[disabled] {
+  opacity: 0.6;/* 透明度降低 */
+  cursor: not-allowed;/* 禁止游標 */
+}
+
+/* 興趣標籤標題 */
+#interests-title {
+  font-weight: 600;   /* 粗體 */
+  margin-bottom: 5px;
+  display: block;
+  font-size: 16px;    
+}
+#interests {
+  display: flex;
+  flex-wrap: nowrap; /* 不換行 */
+  gap: 15px;
+  margin-bottom: 10px;
+}
+/* 複選框標籤樣式 */
+#interests label {
+  font-size: 20px;      
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* input focus */
+input:focus {
+  outline: 2px solid #0d6efd;/* 藍色外框 */
+  outline-offset: 2px;/* 外框間距 */
+}
+
+/* 按鈕樣式 */
+button {
+  min-width: 120px;/* 最小寬度增加 */
+  padding: 10px 20px;  
+  font-size: 16px;/* 字體變大 */
+  margin: 5px;/* 按鈕間距 */
+  border-radius: 5px;
+}
