@@ -1,0 +1,326 @@
+/* 基本顏色變數（淺色模式）*/
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #0d6efd;
+  --ring: rgba(13,110,253,.25);
+  --border: #e5e7eb;
+}
+
+/* 全局 */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.container { background-color: var(--bg); }
+
+/* Header / Footer */
+.site-header,
+.site-footer {
+  background-color: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+/* 卡片 */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* 表單 */
+label.form-label { font-weight: 500; }
+
+input,
+select,
+textarea {
+  background-color: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px !important;
+}
+
+input::placeholder,
+textarea::placeholder { color: #9ca3af; }
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem var(--ring);
+}
+
+/* 錯誤訊息 */
+.error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  min-height: 1rem;
+  margin: 0.15rem 0 0;
+}
+
+/* 按鈕 */
+.btn-outline-secondary {
+  border-radius: 999px;
+}
+
+/* 證件照預覽 */
+#photo-preview,
+#pv-photo {
+  object-fit: cover;
+}
+
+/* 預覽區 tag + link */
+.tag-list,
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: .4rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.tag-list li {
+  background: rgba(13,110,253,.12);
+  color: var(--primary);
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  font-size: .8rem;
+}
+
+.link-list a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: .85rem;
+}
+
+.link-list a:hover { text-decoration: underline; }
+
+/* 多筆工作經驗(表單內) */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.exp-card {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: .75rem .85rem;
+  background-color: #f9fafb;
+}
+
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exp-card-title {
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+.exp-remove-btn {
+  border: none;
+  background: transparent;
+  color: #dc2626;
+  font-size: .85rem;
+  cursor: pointer;
+}
+
+.exp-card .row + .row {
+  margin-top: .4rem;
+}
+
+/* 多筆經驗預覽卡片 */
+.pv-exp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: .4rem;
+}
+
+.pv-exp-card {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: .5rem .75rem;
+  background-color: #f9fafb;
+  font-size: .85rem;
+}
+
+.pv-exp-card-title { font-weight: 600; }
+.pv-exp-card-meta { font-size: .8rem; color: var(--muted); }
+
+/* 履歷列表 */
+.resume-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.resume-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .85rem .95rem;
+  transition: all .2s ease;
+}
+
+.resume-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* 淺灰文字 */
+.text-muted { color: var(--muted) !important; }
+
+/* 深色模式*/
+:root[data-theme="dark"] {
+  --bg: #0d1117;       /* GitHub 深色背景 */
+  --card: #161b22;     /* 深卡片背景 */
+  --text: #f0f6fc;     /* 接近白色，清晰易讀 */
+  --muted: #8b98a5;    /* 柔和灰色（次要文字） */
+  --border: #30363d;   /* 深邊框 */
+  --primary: #58a6ff;  /* 淺藍色（亮眼強調色） */
+  --ring: rgba(88,166,255,0.35); /* 聚焦外框 */
+}
+
+/* 背景與文字 */
+:root[data-theme="dark"] body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Header / Footer */
+:root[data-theme="dark"] .site-header,
+:root[data-theme="dark"] .site-footer {
+  background-color: var(--card);
+  border-color: var(--border);
+}
+
+/* 卡片 */
+:root[data-theme="dark"] .card {
+  background-color: var(--card);
+  border-color: var(--border);
+}
+
+/* 標題、粗體、label */
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] strong,
+:root[data-theme="dark"] label,
+:root[data-theme="dark"] .site-title {
+  color: var(--text) !important;
+}
+
+/* 次要文字 */
+:root[data-theme="dark"] .text-muted {
+  color: var(--muted) !important;
+}
+
+/* 表單輸入框 */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+  background-color: #0d1117;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: #6e7681 !important;
+}
+
+/* 聚焦外框 */
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] select:focus,
+:root[data-theme="dark"] textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem var(--ring);
+}
+
+/* 即時預覽區 — 強制全部亮色 */
+:root[data-theme="dark"] #preview,
+:root[data-theme="dark"] #preview * {
+  color: var(--text) !important;
+}
+
+/* 預覽中的 muted 樣式 */
+:root[data-theme="dark"] #preview .text-muted {
+  color: var(--muted) !important;
+}
+
+/* 超連結 */
+:root[data-theme="dark"] #preview a,
+:root[data-theme="dark"] .link-list a {
+  color: var(--primary) !important;
+}
+
+/* tag 樣式 */
+:root[data-theme="dark"] .tag-list li {
+  background: rgba(88,166,255,0.25);
+  color: var(--text);
+}
+
+/* 工作經驗卡片 */
+:root[data-theme="dark"] .exp-card,
+:root[data-theme="dark"] .pv-exp-card {
+  background-color: #161b22;
+  border-color: #30363d;
+  color: var(--text);
+}
+
+/* 履歷卡片 */
+:root[data-theme="dark"] .resume-card {
+  background-color: #161b22;
+  border-color: #30363d;
+  color: var(--text);
+}
+
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span,
+:root[data-theme="dark"] div,
+:root[data-theme="dark"] li,
+:root[data-theme="dark"] small {
+  color: var(--text) !important;
+}
+
+/* 預覽區額外覆蓋（保證不漏） */
+:root[data-theme="dark"] #preview,
+:root[data-theme="dark"] #preview * {
+  color: var(--text) !important;
+}
+
+/* 預覽區 muted */
+:root[data-theme="dark"] #preview .text-muted {
+  color: var(--muted) !important;
+}
+
+/* 工作經驗預覽 */
+:root[data-theme="dark"] .pv-exp-card,
+:root[data-theme="dark"] .pv-exp-card * {
+  color: var(--text) !important;
+}
+
+/* 自傳、證照（通常是 textarea + div） */
+:root[data-theme="dark"] #pv-bio,
+:root[data-theme="dark"] #pv-bio *,
+:root[data-theme="dark"] #pv-cert,
+:root[data-theme="dark"] #pv-cert * {
+  color: var(--text) !important;
+}
+

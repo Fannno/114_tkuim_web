@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>履歷製作系統</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="site-header py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="site-title m-0">履歷製作系統</h1>
+
+    <!-- 深色模式切換按鈕（右上角） -->
+    <button id="toggle-theme" class="btn btn-sm btn-outline-secondary">
+      深色模式
+    </button>
+  </div>
+</header>
+
+<main class="container my-4">
+
+  <!-- 履歷製作表單 -->
+  <section class="card p-3 shadow-sm mb-4">
+    <h2 class="h4 mb-3">履歷表單</h2>
+
+    <form id="resume-form" novalidate>
+
+      <!-- 基本資料 -->
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">姓名</label>
+          <input id="name" class="form-control" required aria-describedby="name-error" placeholder="請輸入姓名">
+          <p id="name-error" class="error"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input id="email" class="form-control" type="email" required aria-describedby="email-error" placeholder="example@mail.com">
+          <p id="email-error" class="error"></p>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-1">
+        <div class="col-md-4">
+          <label class="form-label">電話</label>
+          <input id="phone" class="form-control" pattern="\\d{10}" required aria-describedby="phone-error" placeholder="0912345678">
+          <p id="phone-error" class="error"></p>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">學歷</label>
+          <select id="education" class="form-select" required aria-describedby="education-error">
+            <option value="" disabled selected>請選擇</option>
+            <option>高中職</option>
+            <option>專科</option>
+            <option>大學</option>
+            <option>碩士</option>
+            <option>博士</option>
+          </select>
+          <p id="education-error" class="error"></p>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">學校名稱</label>
+          <input id="school" class="form-control" required aria-describedby="school-error" placeholder="例如：淡江大學 資管系">
+          <p id="school-error" class="error"></p>
+        </div>
+      </div>
+
+      <!-- 求職資訊 -->
+      <div class="row g-3 mt-3">
+        <div class="col-md-4">
+          <label class="form-label">行業類別</label>
+          <select id="industry" class="form-select" required aria-describedby="industry-error">
+            <option disabled selected>請選擇</option>
+            <option>資訊科技</option>
+            <option>金融保險</option>
+            <option>製造業</option>
+            <option>服務業</option>
+            <option>教育訓練</option>
+            <option>政府機關</option>
+            <option>其他</option>
+          </select>
+          <p id="industry-error" class="error"></p>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">期望職位</label>
+          <input id="position" class="form-control" required aria-describedby="position-error">
+          <p id="position-error" class="error"></p>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">公司名稱</label>
+          <input id="company" class="form-control" required aria-describedby="company-error">
+          <p id="company-error" class="error"></p>
+        </div>
+      </div>
+
+      <!-- 證件照 -->
+      <div class="mt-3 row g-3">
+        <div class="col-md-8">
+          <label class="form-label">證件照（JPG/PNG ≤ 2MB）</label>
+          <input id="photo" type="file" class="form-control" accept="image/jpeg,image/png" aria-describedby="photo-error">
+          <p id="photo-error" class="error"></p>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <span class="small text-muted d-block">預覽</span>
+          <img id="photo-preview" class="img-fluid rounded shadow-sm" style="max-height:150px; display:none;">
+        </div>
+      </div>
+
+      <!-- 自我介紹 -->
+      <div class="mt-3">
+        <label class="form-label">簡介</label>
+        <textarea id="summary" class="form-control" rows="2" required></textarea>
+        <p id="summary-error" class="error"></p>
+      </div>
+
+      <!-- 技能 & 語言 -->
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <label class="form-label">技能（逗號分隔）</label>
+          <input id="skills" class="form-control" required>
+          <p id="skills-error" class="error"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">語言能力</label>
+          <input id="languages" class="form-control" placeholder="例如：英文 TOEIC 800">
+          <p id="languages-error" class="error"></p>
+        </div>
+      </div>
+
+      <!-- 多筆工作經驗 -->
+      <div class="mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h3 class="h5">工作經驗（可新增多筆）</h3>
+          <button type="button" id="add-experience" class="btn btn-sm btn-outline-primary">新增經驗</button>
+        </div>
+
+        <div id="exp-list" class="experience-list"></div>
+      </div>
+
+      <!-- 證照 -->
+      <div class="mt-3">
+        <label class="form-label">證照（逗號分隔）</label>
+        <textarea id="certs" class="form-control" rows="2"></textarea>
+        <p id="certs-error" class="error"></p>
+      </div>
+
+      <!-- 作品連結 -->
+      <div class="mt-3">
+        <label class="form-label">作品連結（逗號分隔）</label>
+        <input id="links" class="form-control">
+        <p id="links-error" class="error"></p>
+      </div>
+
+      <!-- 自傳 -->
+      <div class="mt-3">
+        <label class="form-label">自傳</label>
+        <textarea id="autobio" class="form-control" rows="4" required></textarea>
+        <p id="autobio-error" class="error"></p>
+      </div>
+
+      <!-- 按鈕 -->
+      <div class="mt-4 d-flex flex-wrap gap-2">
+        <button id="submit-btn" class="btn btn-primary" type="submit">完成履歷</button>
+        <button id="draft-btn" class="btn btn-outline-primary" type="button">儲存草稿</button>
+        <button id="reset-btn" class="btn btn-outline-secondary" type="button">清除</button>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- 即時預覽 -->
+  <section class="card p-3 shadow-sm mb-4">
+    <h2 class="h4 mb-3">即時預覽</h2>
+    <p id="pv-index" class="small text-muted mb-1">第 1 份履歷（預覽）</p>
+
+    <div class="row g-3">
+      <div class="col-md-9">
+
+        <h3 id="pv-name">—</h3>
+        <p id="pv-edu" class="text-muted">學歷：—（學校：—）</p>
+        <p id="pv-email">Email：—</p>
+        <p id="pv-phone">電話：—</p>
+        <p id="pv-target">目標：—</p>
+        <p id="pv-summary">簡介：—</p>
+        <p id="pv-languages">語言能力：—</p>
+
+        <div>
+          <strong>技能：</strong>
+          <ul id="pv-skills" class="tag-list"></ul>
+        </div>
+
+        <div class="mt-2">
+          <strong>工作經驗：</strong>
+          <div id="pv-exp-cards" class="pv-exp-cards"></div>
+        </div>
+
+        <div class="mt-2">
+          <strong>證照：</strong>
+          <p id="pv-certs">—</p>
+        </div>
+
+        <div class="mt-2">
+          <strong>作品連結：</strong>
+          <ul id="pv-links" class="link-list"></ul>
+        </div>
+
+        <div class="mt-2">
+          <strong>自傳：</strong>
+          <p id="pv-autobio">—</p>
+        </div>
+
+      </div>
+
+      <div class="col-md-3 text-center">
+        <img id="pv-photo" class="img-fluid rounded shadow-sm" style="max-height:150px; display:none;">
+      </div>
+    </div>
+  </section>
+
+  <!-- 履歷列表 -->
+  <section class="card p-3 shadow-sm mb-4">
+    <h2 class="h4 mb-3">已儲存履歷</h2>
+
+    <div class="row g-3 mb-3">
+      <div class="col-md-6">
+        <input id="search" class="form-control" placeholder="搜尋：姓名、公司、職位、技能…" />
+      </div>
+    </div>
+
+    <div id="list" class="resume-list"></div>
+    <p id="empty" class="text-muted">目前沒有履歷紀錄</p>
+  </section>
+
+</main>
+
+<footer class="site-footer text-center py-3">
+  <div class="container small text-muted">© 2025 履歷製作與投遞系統</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
