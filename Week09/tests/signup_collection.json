@@ -1,47 +1,89 @@
 {
-  "info": {
-    "name": "Signup API Collection",
-    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
-    "description": "Week09 Signup API Collection for testing.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "GET - 取得全部報名資料",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3001/api/signup",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3001",
-          "path": ["api", "signup"]
-        }
-      }
-    },
-    {
-      "name": "POST - 建立報名資料",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"name\": \"測試同學\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"0912345678\",\n  \"password\": \"abc12345\",\n  \"confirmPassword\": \"abc12345\",\n  \"interests\": [\"前端\", \"後端\"],\n  \"terms\": true\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3001/api/signup",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3001",
-          "path": ["api", "signup"]
-        }
-      }
-    }
-  ]
+	"info": {
+		"_postman_id": "da2345f4-4cd2-4eec-a21a-3256d43dd646",
+		"name": "Week09 Signup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50171968",
+		"_collection_link": "https://fannno-1752994.postman.co/workspace/f's-Workspace~8b904af3-fd38-41c7-82db-d4f673fdb82f/collection/50171968-da2345f4-4cd2-4eec-a21a-3256d43dd646?action=share&source=collection_link&creator=50171968"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"測試同學\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"0912345678\",\n  \"password\": \"abc12345\",\n  \"confirmPassword\": \"abc12345\",\n  \"interests\": [\"前端\", \"後端\"],\n  \"terms\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
 }
