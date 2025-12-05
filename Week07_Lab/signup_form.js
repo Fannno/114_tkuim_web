@@ -115,10 +115,11 @@ function validateInterests() {
 }
 
 // 表單送出 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", async e => {
   e.preventDefault();
   let valid = true;
 
+  // 驗證欄位
   inputs.forEach(i => { if (!validateField(i)) valid = false; });
   if (!validateInterests()) valid = false;
 
@@ -127,17 +128,50 @@ form.addEventListener("submit", e => {
     return;
   }
 
+  // 按鈕鎖定 + Loading
   submitBtn.disabled = true;
   submitBtn.textContent = "Loading...";
-  setTimeout(() => {
-    successMsg.classList.remove("hidden");
+
+  // 準備要送到後端的資料
+  const payload = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    password: document.getElementById("password").value,
+    interests: Array.from(
+      document.querySelectorAll("#interests input[type=checkbox]:checked")
+    ).map(b => b.value)
+  };
+
+  try {
+    // Week11 後端
+    const res = await fetch("http://localhost:3001/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error || "送出失敗");
+    } else {
+      successMsg.classList.remove("hidden");
+      form.reset();
+      strengthText.textContent = "無";
+      localStorage.clear();
+    }
+
+  } catch (err) {
+    alert("無法連線到伺服器");
+    console.error(err);
+
+  } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "註冊";
-    form.reset();
-    strengthText.textContent = "無";
-    localStorage.clear();
-  }, 1000);
+  }
 });
+
 
 // 重設按鈕 
 resetBtn.addEventListener("click", () => {
