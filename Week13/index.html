@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Pro - 專業履歷產生器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            CV <span>Pro</span>
+        </div>
+        <div>
+            <span style="font-size: 0.9rem; color: #64748b; margin-right: 1rem;">範例用戶</span>
+            <div
+                style="width: 32px; height: 32px; background: #e2e8f0; border-radius: 50%; display: inline-block; vertical-align: middle;">
+            </div>
+        </div>
+    </nav>
+
+    <div class="editor-container">
+        <!-- 左側資料輸入區 -->
+        <div class="main-content">
+            <h2 style="margin-bottom: 1.5rem;">編輯履歷資料</h2>
+
+            <!-- 個人基本資料 -->
+            <div class="form-section">
+                <div class="section-title">
+                    <span>👤</span> 基本資料
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" placeholder="王小明" value="王大明">
+                    </div>
+                    <div class="form-group">
+                        <label>職稱</label>
+                        <input type="text" placeholder="例如：前端工程師" value="資深網頁設計師">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>電子郵件</label>
+                        <input type="email" placeholder="example@email.com" value="alex@example.com">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>個人簡介</label>
+                        <textarea rows="4"
+                            placeholder="簡短介紹你的專業背景...">熱愛創造直觀且美觀的網頁體驗。擁有 5 年以上的前端開發經驗，專注於 UX/UI 設計與效能優化。</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工作經歷 -->
+            <div class="form-section">
+                <div class="section-title">
+                    <span>💼</span> 工作經歷
+                </div>
+
+                <!-- 經歷項目 (寫死範例) -->
+                <div
+                    style="background: #f8fafc; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid #e2e8f0;">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>公司名稱</label>
+                            <input type="text" value="Tech Solutions Inc.">
+                        </div>
+                        <div class="form-group">
+                            <label>職位</label>
+                            <input type="text" value="前端組長">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>工作內容描述</label>
+                            <textarea rows="3">帶領 5 人團隊重構核心產品介面，提升載入速度 40%。負責制定設計系統與程式碼規範。</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" style="width: 100%;">+ 新增經歷</button>
+            </div>
+        </div>
+
+        <!-- 右側功能區 -->
+        <div class="preview-panel">
+            <div class="preview-card">
+                <div class="preview-icon">📄</div>
+                <h3 style="color: white; margin-bottom: 0.5rem;">準備好了嗎？</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">預覽您的專業履歷並下載 PDF。</p>
+                <a href="preview.html" class="btn btn-primary"
+                    style="background: white; color: var(--primary-color);">即時預覽履歷</a>
+            </div>
+
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+                <h4 style="margin-bottom: 1rem;">完成度</h4>
+                <div style="background: #e2e8f0; height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div style="width: 85%; height: 100%; background: var(--accent-color);"></div>
+                </div>
+                <p style="text-align: right; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">85%</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預覽履歷 - CV Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            CV <span>Pro</span>
+        </div>
+        <a href="index.html" class="btn btn-secondary">← 返回編輯</a>
+    </nav>
+
+    <div class="preview-layout">
+        <div class="toolbar">
+            <span>預覽模式</span>
+            <div style="width: 1px; height: 24px; background: rgba(255,255,255,0.2); margin: 0 1rem;"></div>
+            <button class="btn btn-primary" onclick="alert('模擬下載 PDF 功能！')">下載 PDF</button>
+            <button class="btn btn-secondary"
+                style="background: transparent; color: white; border-color: rgba(255,255,255,0.2);">列印</button>
+        </div>
+
+        <!-- A4 履歷表 -->
+        <div class="resume-paper">
+            <!-- 左側欄 -->
+            <aside class="resume-sidebar">
+                <div class="sidebar-section-title">聯絡方式</div>
+                <div class="sidebar-item">
+                    📧 alex@example.com
+                </div>
+                <div class="sidebar-item">
+                    📱 +886 912 345 678
+                </div>
+                <div class="sidebar-item">
+                    📍 台北市, 台灣
+                </div>
+                <div class="sidebar-item">
+                    🔗 www.example.com
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <div class="sidebar-section-title">技能專長</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; color: #e2e8f0;">HTML/CSS</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; color: #e2e8f0;">JavaScript</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; color: #e2e8f0;">UI
+                            Design</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem; color: #e2e8f0;">React</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <div class="sidebar-section-title">語言</div>
+                    <div class="sidebar-item">中文 (母語)</div>
+                    <div class="sidebar-item">英文 (流利)</div>
+                </div>
+            </aside>
+
+            <!-- 主內容區 -->
+            <main class="resume-main">
+                <h1 class="resume-name">王大明</h1>
+                <div class="resume-title">資深網頁設計師</div>
+
+                <section class="resume-section">
+                    <div class="resume-section-title">個人簡介</div>
+                    <p style="color: #475569; line-height: 1.6;">
+                        熱愛創造直觀且美觀的網頁體驗。擁有 5 年以上的前端開發經驗，專注於 UX/UI 設計與效能優化。致力於縮短設計與開發之間的差距，打造高品質的數位產品。
+                    </p>
+                </section>
+
+                <section class="resume-section">
+                    <div class="resume-section-title">工作經歷</div>
+
+                    <div class="resume-item">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h4>前端組長</h4>
+                            <span style="font-size: 0.85rem; color: #64748b;">2022 - 現在</span>
+                        </div>
+                        <div class="subtitle">Tech Solutions Inc.</div>
+                        <p>
+                            • 帶領 5 人團隊重構核心產品介面，提升載入速度 40%。<br>
+                            • 負責制定設計系統 (Design System) 與程式碼規範，確保產品一致性。<br>
+                            • 導入自動化測試流程，減少 30% 線上 Bug 率。
+                        </p>
+                    </div>
+
+                    <div class="resume-item">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h4>資深網頁設計師</h4>
+                            <span style="font-size: 0.85rem; color: #64748b;">2019 - 2022</span>
+                        </div>
+                        <div class="subtitle">Creative Agency Co.</div>
+                        <p>
+                            • 為超過 20 個國際客戶設計並開發形象網站。<br>
+                            • 獲得 2021 年度最佳網頁設計獎。<br>
+                            • 優化 SEO 結構，協助客戶流量成長平均達 150%。
+                        </p>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <div class="resume-section-title">學歷</div>
+                    <div class="resume-item">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h4>資訊管理學系 學士</h4>
+                            <span style="font-size: 0.85rem; color: #64748b;">2015 - 2019</span>
+                        </div>
+                        <div class="subtitle">淡江大學</div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
