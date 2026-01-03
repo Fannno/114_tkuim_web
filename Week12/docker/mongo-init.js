@@ -15,10 +15,10 @@ db.participants.createIndex({ ownerId: 1 });
 db.createCollection('users');
 db.users.createIndex({ email: 1 }, { unique: true });
 
-// 預先建立管理員帳號（pwd 需先用 bcrypt 雜湊）
+// 預先建立管理員帳號（密碼: pass1234）
 db.users.insertOne({
   email: 'admin@example.com',
-  passwordHash: '$2b$10$4P6uyrAvH/e0K9..exampleHash12345',
+  passwordHash: '$2b$10$tvZgP/z81Y4uzDCpqbbjXOUpQnDD1TqooB9IcrnHNAOI6Sum.E9WW',
   role: 'admin',
   createdAt: new Date()
 });

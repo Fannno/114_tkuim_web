@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week12 JWT 認證系統</title>
+    <style>
+        .hidden { display: none; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .error { color: red; font-size: 14px; }
+        .success { color: green; font-size: 14px; }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .user-info { background: #f0f8ff; padding: 10px; border-radius: 4px; }
+        .participant-item { border: 1px solid #eee; padding: 10px; margin: 5px 0; border-radius: 4px; }
+        .delete-btn { background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week12 JWT 認證系統</h1>
+
+        <!-- 登入區塊 -->
+        <div id="loginSection" class="section">
+            <h2>登入</h2>
+            <form id="loginForm">
+                <div>
+                    <label>Email:</label>
+                    <input type="email" id="loginEmail" required>
+                    <div id="loginEmail-error" class="error"></div>
+                </div>
+                <div>
+                    <label>密碼:</label>
+                    <input type="password" id="loginPassword" required>
+                    <div id="loginPassword-error" class="error"></div>
+                </div>
+                <button type="submit" id="loginBtn">登入</button>
+                <div id="loginError" class="error"></div>
+            </form>
+        </div>
+
+        <!-- 使用者資訊區塊 -->
+        <div id="userSection" class="section hidden">
+            <div class="user-info">
+                <span id="userInfo"></span>
+                <button id="logoutBtn" style="float: right;">登出</button>
+            </div>
+        </div>
+
+        <!-- 報名表單區塊 -->
+        <div id="signupSection" class="section hidden">
+            <h2>報名表單</h2>
+            <form id="signupForm">
+                <div>
+                    <label>姓名:</label>
+                    <input type="text" id="name" required>
+                    <div id="name-error" class="error"></div>
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" id="email" required>
+                    <div id="email-error" class="error"></div>
+                </div>
+                <div>
+                    <label>手機:</label>
+                    <input type="tel" id="phone" required>
+                    <div id="phone-error" class="error"></div>
+                </div>
+                <button type="submit" id="submitBtn">送出報名</button>
+                <div id="signupError" class="error"></div>
+                <div id="signupSuccess" class="success"></div>
+            </form>
+        </div>
+
+        <!-- 報名列表區塊 -->
+        <div id="listSection" class="section hidden">
+            <h2>報名列表</h2>
+            <button id="refreshBtn">重新載入</button>
+            <div id="participantsList"></div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="signup_form.js"></script>
+</body>
+</html>

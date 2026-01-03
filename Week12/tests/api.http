@@ -1,0 +1,62 @@
+@baseUrl = http://localhost:3001
+
+### 1. 未登入被拒 - 應該回傳 401
+GET {{baseUrl}}/api/signup
+
+### 2. 註冊學員帳號
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "student2@example.com",
+  "password": "student123",
+  "role": "student"
+}
+
+### 3. 登入管理員 - 取得 admin token
+# @name adminLogin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "pass1234"
+}
+
+### 4. 登入學員 - 取得 student token
+# @name studentLogin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "student2@example.com",
+  "password": "student123"
+}
+
+### 5. 學員報名
+POST {{baseUrl}}/api/signup
+Content-Type: application/json
+Authorization: Bearer {{studentLogin.response.body.token}}
+
+{
+  "name": "測試學員2",
+  "email": "student2@test.com",
+  "phone": "0987654321"
+}
+
+### 6. 管理員查看全部報名
+GET {{baseUrl}}/api/signup
+Authorization: Bearer {{adminLogin.response.body.token}}
+
+### 7. 學員查看自己的報名
+GET {{baseUrl}}/api/signup
+Authorization: Bearer {{studentLogin.response.body.token}}
+
+### 8. 學員嘗試刪除別人的資料 - 應該回傳 403 權限不足
+# 先手動從步驟6的回應中取得其他人的 participant ID
+DELETE {{baseUrl}}/api/signup/6959380941942232edfae127
+Authorization: Bearer {{studentLogin.response.body.token}}
+
+### 9. 管理員刪除資料 - 應該成功回傳 200
+DELETE {{baseUrl}}/api/signup/6959380941942232edfae127
+Authorization: Bearer {{adminLogin.response.body.token}}
